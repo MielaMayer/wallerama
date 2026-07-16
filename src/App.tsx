@@ -8,26 +8,13 @@ function PdfPage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function LinkButton({
-  href,
-  children,
-  solid = false,
-}: {
-  href: string;
-  children: string;
-  solid?: boolean;
-}) {
+function LinkButton({ href, children }: { href: string; children: string }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className={
-        "rounded-full px-6 py-2.5 font-title text-sm tracking-wide transition " +
-        (solid
-          ? "bg-gold text-forest-3 hover:brightness-110"
-          : "border border-gold text-cream hover:bg-gold/15")
-      }
+      className="rounded-full bg-gold px-6 py-2.5 font-title text-sm tracking-wide text-forest-3 transition hover:brightness-110"
     >
       {children}
     </a>
@@ -49,48 +36,30 @@ export default function App() {
       {/* ---- PAGE 1 · POSTER ---- */}
       <PdfPage src="poster.png" alt="Wallerama Summer Fest 2026 · July 17–19 · Gateway Mendocino, Hopland CA" />
 
-      {/* snippet: RSVP + key links */}
-      <Snippet>
-        <div className="mb-3 font-title text-lg tracking-[0.15em] text-forest">
-          RSVP · CONTRIBUTE · COORDINATE
-        </div>
-        <div className="flex flex-wrap justify-center gap-3">
-          <LinkButton href={links.partiful} solid>RSVP on Partiful</LinkButton>
-          <LinkButton href={links.contributeForm}>Contribute a thing</LinkButton>
-          <LinkButton href={links.whatsapp}>Join WhatsApp</LinkButton>
-          <LinkButton href={links.ridesGearSheet}>Rides &amp; gear sheet</LinkButton>
-        </div>
-        <div className="mt-3 text-sm text-ink/70">
-          Venmo{" "}
-          <a href={links.venmo} target="_blank" rel="noreferrer" className="font-semibold underline">
-            @Miela-Mayer
-          </a>{" "}
-          to lock your spot · $60 weekend + optional $40 food program
-        </div>
-      </Snippet>
+      {/* snippet: just the buttons, on the green background */}
+      <div className="flex flex-wrap justify-center gap-3">
+        <LinkButton href={links.partiful}>RSVP on Partiful</LinkButton>
+        <LinkButton href={links.contributeForm}>Contribute a thing</LinkButton>
+        <LinkButton href={links.whatsapp}>Join WhatsApp</LinkButton>
+        <LinkButton href={links.ridesGearSheet}>Rides &amp; gear sheet</LinkButton>
+      </div>
 
       {/* ---- PAGE 2 · VENUE MAP ---- */}
       <PdfPage src="venuemap.png" alt="Wallerama venue map — Gateway Mendocino" />
 
-      {/* snippet: birthdays */}
-      <Snippet>
-        <div className="font-body text-lg italic">
-          🎂 bdays being celebrated this fine weekend: <br className="sm:hidden" />
-          <span className="font-semibold not-italic">
-            Preeti Iyer · Timour Kosters · Cedric Whitney · Jono Kline · Miela Mayer
-          </span>{" "}
-          :)
-        </div>
-      </Snippet>
+      {/* snippet: birthdays — subtle, on the green background */}
+      <p className="max-w-2xl px-4 text-center font-body text-base italic text-cream/70">
+        🎂 birthdays this weekend: Preeti Iyer · Timour Kosters · Cedric Whitney · Jono Kline · Miela Mayer :)
+      </p>
 
       {/* ---- PAGE 3 · WHAT TO EXPECT + LINEUP ---- */}
       <PdfPage src="page3.png" alt="What to Expect, Daily Themes, and Lineup" />
 
       {/* snippet: volunteer callout */}
       <Snippet>
-        <div className="font-title text-base tracking-wide text-forest">🛠️ CALLING VOLUNTEERS</div>
+        <div className="font-title text-lg tracking-wide text-forest">👀 volunteers 👀</div>
         <div className="mt-1 font-body text-lg">
-          Seeking pals to help with sediment teardown — any and all volunteers welcome
+          Seeking pals to help with set up and tear down — any and all volunteers welcome
           starting <span className="font-semibold">12 PM on Friday</span> :)
         </div>
       </Snippet>
@@ -100,9 +69,9 @@ export default function App() {
 
       {/* footer snippet: all the links, live */}
       <Snippet>
-        <div className="mb-3 font-title text-lg tracking-[0.15em] text-forest">ALL THE LINKS</div>
+        <div className="mb-3 font-title text-lg tracking-[0.15em] text-forest">links links links</div>
         <div className="flex flex-wrap justify-center gap-3">
-          <LinkButton href={links.partiful} solid>Partiful (RSVP)</LinkButton>
+          <LinkButton href={links.partiful}>Partiful (RSVP)</LinkButton>
           <LinkButton href={links.contributeForm}>Attendance + contribute form</LinkButton>
           <LinkButton href={links.whatsapp}>WhatsApp group</LinkButton>
           <LinkButton href={links.ridesGearSheet}>Rides &amp; gear sheet</LinkButton>
