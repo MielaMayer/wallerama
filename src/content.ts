@@ -12,6 +12,7 @@ export const links = {
   contributeForm: "https://mielz.notion.site/f3662f6205f54a45877408d969dad295?pvs=105",
   venue: "https://www.gatewaymendocino.com/gallery",
   venmo: "https://venmo.com/u/Miela-Mayer",
+  podcastDrive: "https://drive.google.com/file/d/1r33UGSxWb7MZi9Ps6nJBXY0c4ECIboQm/view?usp=sharing",
 };
 
 export const expect = {

@@ -1,6 +1,45 @@
 import { links } from "@/content";
 
 const IMG = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
+const AUDIO = `${import.meta.env.BASE_URL}audio/wallerama-ep1.m4a`;
+
+function PodcastBanner() {
+  return (
+    <div className="mx-auto w-full max-w-2xl rounded-2xl border-2 border-gold bg-cream/95 px-6 py-5 text-center text-ink shadow-[0_6px_0_rgba(0,0,0,0.18)]">
+      <div className="flex items-center justify-center gap-2 font-title text-xl font-bold tracking-wide text-forest">
+        <span aria-hidden>▶</span> Start here: Wallerama podcast launch
+      </div>
+      <div className="mt-0.5 font-body text-base italic text-ink/70">
+        pre-listening for the weekend · Episode 1
+      </div>
+      <audio
+        controls
+        preload="metadata"
+        src={AUDIO}
+        className="mt-4 w-full"
+      >
+        Your browser can't play this audio — use the download link below.
+      </audio>
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-sm">
+        <a
+          href={AUDIO}
+          download="Wallerama-Podcast-Ep1.m4a"
+          className="rounded-full bg-gold px-5 py-2 font-title tracking-wide text-forest-3 transition hover:brightness-110"
+        >
+          ⬇ Download audio
+        </a>
+        <a
+          href={links.podcastDrive}
+          target="_blank"
+          rel="noreferrer"
+          className="font-title tracking-wide text-forest underline underline-offset-2 hover:text-gold"
+        >
+          Open in Google Drive
+        </a>
+      </div>
+    </div>
+  );
+}
 
 function PdfPage({ src, alt }: { src: string; alt: string }) {
   return (
@@ -33,6 +72,9 @@ function Snippet({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <main className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-6">
+      {/* ---- PODCAST · start here ---- */}
+      <PodcastBanner />
+
       {/* ---- PAGE 1 · POSTER ---- */}
       <PdfPage src="poster.png" alt="Wallerama Summer Fest 2026 · July 17–19 · Gateway Mendocino, Hopland CA" />
 
