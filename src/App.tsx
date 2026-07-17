@@ -94,6 +94,18 @@ export default function App() {
         🎂 birthdays this weekend: Preeti Iyer · Timour Kosters · Cedric Whitney · Jono Kline · Miela Mayer :)
       </p>
 
+      {/* schedule disclaimer — most up-to-date schedule lives in the sheet */}
+      <Snippet>
+        <div className="font-title text-lg tracking-wide text-forest">📅 heads up on the schedule</div>
+        <div className="mt-1 font-body text-lg">
+          The schedule below is illustrative. For the granular, most up-to-date
+          and final schedule, check the live spreadsheet.
+        </div>
+        <div className="mt-3 flex justify-center">
+          <LinkButton href={links.scheduleSheet}>Live schedule (spreadsheet) →</LinkButton>
+        </div>
+      </Snippet>
+
       {/* ---- PAGE 3 · WHAT TO EXPECT + LINEUP ---- */}
       <PdfPage src="page3.png" alt="What to Expect, Daily Themes, and Lineup" />
 
